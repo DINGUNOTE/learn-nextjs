@@ -55,7 +55,25 @@
     );
   }
   ```
-* `Custom App Component(_app.js)`에서 공통 레이아웃을 정의할 수 있다. 전역 css를 import하면 전역 스타일링이 가능하다. Layout 컴포넌트를 활용하는 방법도 있다. [https://nextjs.org/docs/basic-features/layouts](https://nextjs.org/docs/basic-features/layouts)
+* `Custom App Component(_app.js)`에서 공통 레이아웃을 정의할 수 있다. 전역 css를 import하면 전역 스타일링이 가능하다.
+* `Layout Pattern`을 활용해서 공통 레이아웃 정의하기
+  * Layout.js에서 공통 레이아웃을 정의할 수 있다.
+  * `Head`를 import해와서 페이지 별 타이틀, 메타 태그를 설정할 수 있다.
+* `redirect` - 특정 URL로 접근 시 다른 경로로 리다이렉트 시킬 수 있다.
+  ```javascript
+  // next.config.js
+  module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/about', // 접근한 URL
+        destination: '/', // 리다이렉트될 URL
+        permanent: true, // 브라우저나 검색엔진이 이 정보를 기억하는지 여부가 결정 됨
+      },
+    ]
+  },
+}
+  ```
 
 
 > <b>출처</b><br>
