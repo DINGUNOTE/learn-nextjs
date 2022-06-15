@@ -4,6 +4,9 @@ const API_KEY = process.env.API_KEY;
 
 const nextConfig = {
   reactStrictMode: false,
+  images: {
+    domains: ['image.tmdb.org'],
+  },
   async redirects() {
     return [
       {

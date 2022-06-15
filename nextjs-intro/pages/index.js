@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import SEO from '../components/SEO';
 
 export default function Home() {
@@ -19,10 +20,13 @@ export default function Home() {
       {!movies && <h4>Loading...</h4>}
       {movies?.map(movie => (
         <div className="movie" key={movie.id}>
-          <img
+          <Image
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt={movie.title}
+            width={500}
+            height={750}
           />
+
           <h4>{movie.title}</h4>
         </div>
       ))}
