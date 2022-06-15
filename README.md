@@ -59,21 +59,24 @@
 * `Layout Pattern`을 활용해서 공통 레이아웃 정의하기
   * Layout.js에서 공통 레이아웃을 정의할 수 있다.
   * `Head`를 import해와서 페이지 별 타이틀, 메타 태그를 설정할 수 있다.
-* `redirect` - 특정 URL로 접근 시 다른 경로로 리다이렉트 시킬 수 있다.
+* `redirects` - 특정 URL로 접근 시 다른 경로로 리다이렉트 시킬 수 있다.
   ```javascript
   // next.config.js
   module.exports = {
-  async redirects() {
-    return [
-      {
-        source: '/about', // 접근한 URL
-        destination: '/', // 리다이렉트될 URL
-        permanent: true, // 브라우저나 검색엔진이 이 정보를 기억하는지 여부가 결정 됨
-      },
-    ]
-  },
-}
+    async redirects() {
+      return [
+        {
+          source: '/about', // 접근한 URL
+          destination: '/', // 리다이렉트될 URL
+          permanent: true, // 브라우저나 검색엔진이 이 정보를 기억하는지 여부가 결정 됨
+        },
+      ]
+    },
+  }
   ```
+* `rewrite` - 유저를 리다이렉트 시키긴 하지만 URL은 변경되지 않는다.(해당 기능으로 API 키를 숨길 수 있다.)
+* `next/image`를 사용해서 이미지 최적화(동적 이미지 URL을 사용할 경우 보안상에 이유로 `next.config.js`에 해당 도메인을 추가해줘야 함)
+* `getServerSideProps()` - 서버사이드에서만 실행되고, 브라우저에서 실행되지 않는다. 매 요청 시 마다 실행되고, 그 결과에 따른 값을 props로 넘겨주고 미리 렌더링한다. 유저가 페이지에 접속했을 때 HTML을 서버사이드에서 미리 렌더링, API가 느리다면 렌더링이 시작되기 전까지 오래 걸릴 수 있다.
 
 
 > <b>출처</b><br>
