@@ -20,7 +20,11 @@ const nextConfig = {
     return [
       {
         source: '/api/movies',
-        destination: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ko`,
+        destination: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ko`, // 메인 화면에서 API 키 숨기기
+      },
+      {
+        source: '/api/movies/:id',
+        destination: `https://api.themoviedb.org/3/movie/:id?api_key=${API_KEY}&language=ko`, // 상세 화면에서 API 키 숨기기
       },
     ];
   },
